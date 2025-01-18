@@ -1,0 +1,76 @@
+{
+  "project_info": {
+    "project_number": "405108492051",
+    "project_id": "e-commerce-55330",
+    "storage_bucket": "e-commerce-55330.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:405108492051:android:fb7db2d41a4ffbeb787ce6",
+        "android_client_info": {
+          "package_name": "com.example.commerce"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "405108492051-nd6q75q587oe1409mgoq9a0r026cr0pt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.commerce",
+            "certificate_hash": "7cc4151538d022f3413f097a053eaa1fe0695f91"
+          }
+        },
+        {
+          "client_id": "405108492051-dctcs2c1dvgb6jitdh9bibmboamtkf31.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD-RnNVpASikJ-ayL9DArZDOobQba7A6bs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "405108492051-dctcs2c1dvgb6jitdh9bibmboamtkf31.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:405108492051:android:0d8e660841d6627f787ce6",
+        "android_client_info": {
+          "package_name": "com.yourprojectname.commerce"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "405108492051-dctcs2c1dvgb6jitdh9bibmboamtkf31.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD-RnNVpASikJ-ayL9DArZDOobQba7A6bs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "405108492051-dctcs2c1dvgb6jitdh9bibmboamtkf31.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
