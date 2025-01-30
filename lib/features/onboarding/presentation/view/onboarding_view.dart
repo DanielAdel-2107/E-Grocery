@@ -19,7 +19,7 @@ class OnboardingView extends StatelessWidget {
         body: SafeArea(
           child: BlocConsumer<OnboardingCubit, OnboardingState>(
             listener: (context, state) {
-              if(state is OnboardingNavigateToLogin) {
+              if (state is OnboardingNavigateToLogin) {
                 Navigator.pushReplacementNamed(context, RoutesName.authIntro);
               }
             },
@@ -29,7 +29,7 @@ class OnboardingView extends StatelessWidget {
                 children: [
                   const Spacer(),
                   Expanded(
-                    flex: 8,
+                    flex: 12,
                     child: PageView.builder(
                       onPageChanged: (val) {
                         handler.onPageChange(val);
@@ -51,7 +51,8 @@ class OnboardingView extends StatelessWidget {
                         duration: CoreDefaults.duration,
                         tween: Tween<double>(
                             begin: 0,
-                            end: (1 / handler.items.length) * (state.currentPage + 1)),
+                            end: (1 / handler.items.length) *
+                                (state.currentPage + 1)),
                         curve: Curves.easeInOutBack,
                         builder: (context, double value, _) => SizedBox(
                           height: 70,

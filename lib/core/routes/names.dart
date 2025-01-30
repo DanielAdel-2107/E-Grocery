@@ -1,7 +1,7 @@
 part of 'routes.dart';
 
 class RoutesName {
-  //! ********* Onboarding ************ 
+  //! ********* Onboarding ************
   static const initial = '/';
   //! ********* Auth ************
   static const authIntro = 'authIntro';
@@ -44,7 +44,7 @@ class RoutesName {
   //! ********* Profile *****************
   static const myOrder = 'myOrder';
   static const orderDetails = 'orderDetails';
-  static const coupon = 'coupon'; 
+  static const coupon = 'coupon';
   static const couponDetails = 'couponDetails';
   static const deliveryAddress = 'deliveryAddress';
   static const paymentMethod = 'paymentMethod';
@@ -58,7 +58,7 @@ class RoutesName {
   static const settingsNotifications = 'settingsNotifications';
   static const changePassword = 'changePassword';
   static const changePhoneNumber = 'changePhoneNumber';
-
-  
+  //! ********* Chat *****************
+  static const chat = 'chat';
   static const test = 'test';
 }

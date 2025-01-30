@@ -32,23 +32,34 @@ class SocialLogins extends StatelessWidget {
                       vertical: CoreDefaults.padding,
                     ),
                   ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      SvgPicture.asset(
-                        CoreIcons.googleIconRounded,
-                        width: 24,
+                  child: Consumer<LoginWithGoogleProvider>(
+                      builder: (context, provider, child) {
+                    return GestureDetector(
+                      onTap: () {
+                        provider.loginWithGoogle(context);
+                      },
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          SvgPicture.asset(
+                            CoreIcons.googleIconRounded,
+                            width: 24,
+                          ),
+                          const SizedBox(width: 8),
+                          Text(
+                            'Google',
+                            style: Theme.of(context)
+                                .textTheme
+                                .labelLarge
+                                ?.copyWith(
+                                  color: Colors.red,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                          ),
+                        ],
                       ),
-                      const SizedBox(width: 8),
-                      Text(
-                        'Google',
-                        style: Theme.of(context).textTheme.labelLarge?.copyWith(
-                              color: Colors.red,
-                              fontWeight: FontWeight.bold,
-                            ),
-                      ),
-                    ],
-                  ),
+                    );
+                  }),
                 );
               },
             ),

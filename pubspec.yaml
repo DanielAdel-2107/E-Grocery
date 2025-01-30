@@ -29,6 +29,7 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   animations: ^2.0.11
+  chat_bubbles: ^1.6.0
   cupertino_icons: ^1.0.8
   dart_ui_isolate: ^1.1.1
   device_preview: ^1.2.0

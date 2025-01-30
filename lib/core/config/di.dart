@@ -25,6 +25,12 @@ Future<void> initDi() async {
   store.registerSingleton<ProductProvider>(
     ProductProvider(apiConsumer: store<DioConsumer>()),
   );
+  store.registerFactory<ChatProvider>(
+    () => ChatProvider(dio: store<Dio>()),
+  );
+  store.registerFactory<LoginWithGoogleProvider>(
+    () => LoginWithGoogleProvider(),
+  );
 }
 
 

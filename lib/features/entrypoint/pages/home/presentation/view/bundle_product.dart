@@ -22,6 +22,7 @@ class BundleProductDetailsPage extends StatelessWidget {
         child: Column(
           children: [
             const ProductImagesSlider(
+              imageWidget: false,
               images: [
                 'assets/images/dummy/bundle-slider.png',
                 'assets/images/dummy/bundle-slider.png',

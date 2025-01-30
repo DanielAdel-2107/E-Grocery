@@ -1,6 +1,7 @@
 import 'package:commerce/core/constants/constants.dart';
 import 'package:commerce/core/routes/routes.dart';
 import 'package:flutter/material.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'profile_list_tile.dart';
 
 class ProfileMenuOptions extends StatelessWidget {
@@ -45,11 +46,15 @@ class ProfileMenuOptions extends StatelessWidget {
           ),
           const Divider(thickness: 0.1),
           ProfileListTile(
-            title: 'Logout',
-            icon: CoreIcons.profileLogout,
-            onTap: () =>
-                Navigator.pushNamed(context, RoutesName.loginOrRegister),
-          ),
+              title: 'Logout',
+              icon: CoreIcons.profileLogout,
+              onTap: () {
+                GoogleSignIn google = GoogleSignIn();
+                google.disconnect();
+                Navigator.pushNamedAndRemoveUntil(
+                    context, RoutesName.login, (Route<dynamic> route) => false);
+                // Navigator.pushNamed(context, RoutesName.coupon);
+              }),
         ],
       ),
     );

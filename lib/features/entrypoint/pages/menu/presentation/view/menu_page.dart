@@ -1,5 +1,6 @@
 import 'package:commerce/core/model/category_model.dart';
 import 'package:commerce/core/routes/routes.dart';
+import 'package:commerce/core/theme/theme.dart';
 import 'package:commerce/features/entrypoint/pages/menu/presentation/provider/product_provider.dart';
 import 'package:commerce/features/entrypoint/pages/menu/presentation/widgets/category_tile.dart';
 import 'package:flutter/material.dart';
@@ -57,7 +58,7 @@ class CateogoriesGrid extends StatelessWidget {
                   return CategoryTile(
                     imageLink: snapshot.data![index].image,
                     label: snapshot.data![index].name,
-                    backgroundColor: Colors.green,
+                    backgroundColor: CoreThemeColor.primary,
                     onTap: () {
                       provider.selectCategory(snapshot.data![index].name,
                           snapshot.data![index].id.toString());

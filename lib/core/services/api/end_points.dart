@@ -6,6 +6,7 @@ class EndPoints {
   static const String getCategories = 'Categories';
   static const String getProducts = 'Products/';
   static const String getByCategory = 'GetProductsByCategory';
+  static const String sendMessage = 'GetProductsByCategory';
 }
 
 class ApiKeys {

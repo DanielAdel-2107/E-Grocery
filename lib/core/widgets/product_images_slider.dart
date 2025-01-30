@@ -9,8 +9,9 @@ class ProductImagesSlider extends StatefulWidget {
   const ProductImagesSlider({
     super.key,
     required this.images,
+    this.imageWidget = true,
   });
-
+  final bool imageWidget;
   final List<String> images;
 
   @override
@@ -20,9 +21,7 @@ class ProductImagesSlider extends StatefulWidget {
 class _ProductImagesSliderState extends State<ProductImagesSlider> {
   late PageController controller;
   int currentIndex = 0;
-
   List<String> images = [];
-
   @override
   void initState() {
     super.initState();
@@ -61,10 +60,11 @@ class _ProductImagesSliderState extends State<ProductImagesSlider> {
                       padding: const EdgeInsets.all(CoreDefaults.padding),
                       child: AspectRatio(
                         aspectRatio: 1 / 1,
-                        child: ImageWidget(
-                          base64String: images[index],
-                          // fit: BoxFit.contain,
-                        ),
+                        child: widget.imageWidget
+                            ? ImageWidget(base64String: images[index]
+                                // fit: BoxFit.contain,
+                                )
+                            : Image.asset(images[index], fit: BoxFit.contain),
                       ),
                     );
                   },

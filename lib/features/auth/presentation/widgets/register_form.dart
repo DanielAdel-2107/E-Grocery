@@ -1,15 +1,11 @@
-import 'package:commerce/core/services/api/dio_consumer.dart';
 import 'package:commerce/core/config/config.dart';
 import 'package:commerce/core/constants/constants.dart';
-import 'package:commerce/core/routes/routes.dart';
 import 'package:commerce/core/utils/validators.dart';
+import 'package:commerce/core/widgets/custom_auth_text_form_field.dart';
 import 'package:commerce/features/auth/presentation/provider/register_provider.dart';
 import 'package:commerce/features/auth/presentation/widgets/have_account.dart';
 import 'package:commerce/features/auth/presentation/widgets/register_btn.dart';
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 
 class RegisterForm extends StatelessWidget {
@@ -38,50 +34,35 @@ class RegisterForm extends StatelessWidget {
                 children: [
                   const Text("Name"),
                   const SizedBox(height: 8),
-                  TextFormField(
+                  CustomAuthTextFormField(
                     controller: provider.nameController,
                     validator: Validators.requiredWithFieldName('Name').call,
-                    textInputAction: TextInputAction.next,
                   ),
                   const SizedBox(height: CoreDefaults.padding),
                   const Text("Phone Number"),
                   const SizedBox(height: 8),
-                  TextFormField(
+                  CustomAuthTextFormField(
                     controller: provider.phoneNumberController,
-                    textInputAction: TextInputAction.next,
                     validator: Validators.required.call,
-                    keyboardType: TextInputType.number,
-                    inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                   ),
                   const SizedBox(height: CoreDefaults.padding),
                   const Text("Email Address"),
                   const SizedBox(height: 8),
-                  TextFormField(
+                  CustomAuthTextFormField(
                     controller: provider.emailController,
-                    textInputAction: TextInputAction.next,
                     validator: Validators.required.call,
-                    keyboardType: TextInputType.emailAddress,
                   ),
                   const SizedBox(height: CoreDefaults.padding),
                   const Text("Password"),
                   const SizedBox(height: 8),
-                  TextFormField(
+                  CustomAuthTextFormField(
                     controller: provider.passwordController,
                     validator: Validators.required.call,
-                    textInputAction: TextInputAction.next,
-                    obscureText: true,
-                    decoration: InputDecoration(
-                      suffixIcon: Material(
-                        color: Colors.transparent,
-                        child: IconButton(
-                          onPressed: () {},
-                          icon: SvgPicture.asset(
-                            CoreIcons.eye,
-                            width: 24,
-                          ),
-                        ),
-                      ),
-                    ),
+                    enableSuffix: provider.obscurePassword,
+                    isPassword: true,
+                    onPressed: () {
+                      provider.toggelPassword();
+                    },
                   ),
                   const SizedBox(height: CoreDefaults.padding),
                   RegisterBtn(

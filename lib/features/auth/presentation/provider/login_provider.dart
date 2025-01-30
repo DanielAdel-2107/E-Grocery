@@ -19,11 +19,16 @@ class LoginProvider with ChangeNotifier {
   UserModel? user;
   bool isLoading = false;
   LoginProvider({required this.apiConsumer});
+  bool securePassword = true;
+  toggelPassword() {
+    securePassword = !securePassword;
+    notifyListeners();
+  }
+
   login(context) async {
     if (formKey.currentState!.validate()) {
       isLoading = true;
       notifyListeners();
-
       try {
         final response = await apiConsumer.post(EndPoints.login, data: {
           ApiKeys.username: nameController.text,
@@ -38,8 +43,10 @@ class LoginProvider with ChangeNotifier {
             context: context, title: "Success", message: "Login Successfully");
       } on ServerException catch (e) {
         showCustomDialog(
-            context: context, title: "Failure", message: e.errorMessage);
+            context: context, title: "Failure", message: e.errorModel.title!);
       }
+      isLoading = false;
+      notifyListeners();
     }
   }
 

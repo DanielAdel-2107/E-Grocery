@@ -6,11 +6,7 @@ import 'package:flutter/material.dart';
 class LoginWithGoogleProvider with ChangeNotifier {
   loginWithGoogle(context) async {
     try {
-      await signInWithGoogle();
-      Navigator.pushNamedAndRemoveUntil(
-          context, RoutesName.entryPoint, (Route<dynamic> route) => false);
-      showCustomDialog(
-          context: context, title: "Success", message: "Login Successfully");
+      await signInWithGoogle(context: context);
     } on Exception catch (e) {
       showCustomDialog(
         context: context,

@@ -1,5 +1,4 @@
 import 'package:commerce/core/services/api/api_consumer.dart';
-import 'package:commerce/core/services/api/dio_consumer.dart';
 import 'package:commerce/core/services/api/end_points.dart';
 import 'package:commerce/core/services/api/exceptions.dart';
 import 'package:commerce/core/functions/show_dialog.dart';
@@ -15,6 +14,12 @@ class RegisterProvider with ChangeNotifier {
   final fotmKey = GlobalKey<FormState>();
   bool isLoading = false;
   RegisterProvider({required this.apiConsumer});
+  bool obscurePassword = true;
+  toggelPassword() {
+    obscurePassword = !obscurePassword;
+    notifyListeners();
+  }
+
   signUp(context) async {
     if (fotmKey.currentState!.validate()) {
       isLoading = true;
@@ -35,7 +40,7 @@ class RegisterProvider with ChangeNotifier {
             message: "Your account has been created successfully");
       } on ServerException catch (e) {
         showCustomDialog(
-            context: context, title: "Failure", message: e.errorMessage);
+            context: context, title: "Failure", message: e.errorModel.title!);
       }
       isLoading = false;
       notifyListeners();

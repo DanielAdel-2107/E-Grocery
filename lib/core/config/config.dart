@@ -1,7 +1,9 @@
 import 'package:commerce/core/database/cache/cache_helper.dart';
 import 'package:commerce/core/services/api/dio_consumer.dart';
 import 'package:commerce/features/auth/presentation/provider/login_provider.dart';
+import 'package:commerce/features/auth/presentation/provider/login_with_google_provider.dart';
 import 'package:commerce/features/auth/presentation/provider/register_provider.dart';
+import 'package:commerce/features/entrypoint/pages/chat/provider/chat_provider.dart';
 import 'package:commerce/features/entrypoint/pages/menu/presentation/provider/product_provider.dart';
 import 'package:commerce/features/onboarding/data/onboarding_data.dart';
 import 'package:commerce/features/onboarding/presentation/cubit/onboarding_cubit.dart';

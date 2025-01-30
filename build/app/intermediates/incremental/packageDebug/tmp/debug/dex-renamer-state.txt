@@ -1,4 +1,4 @@
-#Sat Jan 18 21:50:21 EET 2025
+#Thu Jan 30 20:11:00 EET 2025
 base.0=D\:\\Final_work\\work\\E-Grocery\\E-Grocery\\build\\app\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
 base.1=D\:\\Final_work\\work\\E-Grocery\\E-Grocery\\build\\app\\intermediates\\dex\\debug\\mergeLibDexDebug\\0\\classes.dex
 base.2=D\:\\Final_work\\work\\E-Grocery\\E-Grocery\\build\\app\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex

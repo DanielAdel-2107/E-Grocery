@@ -24,7 +24,7 @@ class ProductTileSquare extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: CoreDefaults.borderRadius,
           color: CoreThemeColor.scaffoldBackground,
-          border: Border.all(width: 1, color: Colors.green),
+          border: Border.all(width: 1, color: CoreThemeColor.primary),
         ),
         child: InkWell(
           borderRadius: CoreDefaults.borderRadius,

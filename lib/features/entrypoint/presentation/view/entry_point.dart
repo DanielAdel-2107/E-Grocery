@@ -1,6 +1,9 @@
 import 'package:commerce/core/constants/constants.dart';
+import 'package:commerce/core/routes/routes.dart';
 import 'package:commerce/core/theme/theme.dart';
 import 'package:commerce/features/entrypoint/pages/cart/presentation/view/cart_page.dart';
+import 'package:commerce/features/entrypoint/pages/chat/screens/chat_screen.dart';
+import 'package:commerce/features/entrypoint/pages/chat/screens/text_screen.dart';
 // import 'package:commerce/features/entrypoint/pages/cart/presentation/view/empty_cart_page.dart';
 // import 'package:commerce/features/entrypoint/pages/cart/presentation/view/empty_cart_page_2.dart';
 import 'package:commerce/features/entrypoint/pages/home/presentation/view/home_page.dart';
@@ -41,18 +44,46 @@ class _EntryPointViewState extends State<EntryPointView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: PageTransitionSwitcher(
-        transitionBuilder: (child, primaryAnimation, secondaryAnimation) {
-          return SharedAxisTransition(
-            animation: primaryAnimation,
-            secondaryAnimation: secondaryAnimation,
-            transitionType: SharedAxisTransitionType.horizontal,
-            fillColor: CoreThemeColor.scaffoldBackground,
-            child: child,
-          );
-        },
-        duration: CoreDefaults.duration,
-        child: pages[currentIndex],
+      body: Stack(
+        children: [
+          PageTransitionSwitcher(
+            transitionBuilder: (child, primaryAnimation, secondaryAnimation) {
+              return SharedAxisTransition(
+                animation: primaryAnimation,
+                secondaryAnimation: secondaryAnimation,
+                transitionType: SharedAxisTransitionType.horizontal,
+                fillColor: CoreThemeColor.scaffoldBackground,
+                child: child,
+              );
+            },
+            duration: CoreDefaults.duration,
+            child: pages[currentIndex],
+          ),
+          Positioned(
+            bottom: 20,
+            right: 20,
+            child: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const ChatScreen()));
+              },
+              child: Container(
+                width: 70,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  border: Border.all(color: CoreThemeColor.primary, width: 5),
+                  color: Colors.white,
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Image.asset(CoreImages.chatbot),
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {

@@ -38,8 +38,6 @@ class EntryBottomNav extends StatelessWidget {
             padding: EdgeInsets.all(CoreDefaults.padding * 2),
             child: SizedBox(width: CoreDefaults.margin),
           ),
-          /* <---- We have to leave this 3rd index (2) for the cart item -----> */
-
           EntryBottomNavItem(
             name: 'Save',
             iconLocation: CoreIcons.save,

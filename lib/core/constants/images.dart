@@ -35,4 +35,7 @@ class CoreImages {
   static const homeAdSpace = 'assets/images/entry/home-adspace.png';
   //! ************ Save ****************
   static const emptyBox = 'assets/images/save/empty.png';
+  //! ************ chat ****************
+  static const chatbot = 'assets/images/entry/chatbot.png';
+  static const user = 'assets/images/entry/person.png';
 }

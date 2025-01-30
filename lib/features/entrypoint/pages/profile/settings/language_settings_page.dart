@@ -82,7 +82,7 @@ class _SuggestedLanguage extends StatelessWidget {
           label: 'United States',
           trailing: Icon(
             Icons.check,
-            color: Colors.green,
+            color: CoreThemeColor.primary,
           ),
         ),
       ],

@@ -1,6 +1,8 @@
 import 'package:commerce/core/config/config.dart';
 import 'package:commerce/core/routes/routes.dart';
 import 'package:commerce/core/theme/theme.dart';
+import 'package:commerce/features/auth/presentation/provider/login_with_google_provider.dart';
+import 'package:commerce/features/entrypoint/pages/chat/provider/chat_provider.dart';
 import 'package:commerce/features/entrypoint/pages/menu/presentation/provider/product_provider.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
@@ -28,8 +30,18 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => store<ProductProvider>(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (context) => store<ProductProvider>(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => store<ChatProvider>(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => store<LoginWithGoogleProvider>(),
+        )
+      ],
       child: MaterialApp(
         locale: DevicePreview.locale(context),
         builder: DevicePreview.appBuilder,

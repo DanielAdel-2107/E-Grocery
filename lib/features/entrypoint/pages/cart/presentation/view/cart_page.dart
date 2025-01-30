@@ -1,5 +1,6 @@
 import 'package:commerce/core/constants/constants.dart';
 import 'package:commerce/core/routes/routes.dart';
+import 'package:commerce/core/theme/theme.dart';
 import 'package:commerce/core/utils/ui_util.dart';
 import 'package:commerce/core/widgets/back_btn.dart';
 import 'package:commerce/features/entrypoint/pages/cart/presentation/widgets/coupon_code_field.dart';
@@ -35,7 +36,7 @@ class CartPage extends StatelessWidget {
                           style: Theme.of(context)
                               .textTheme
                               .titleMedium
-                              ?.copyWith(color: Colors.green),
+                              ?.copyWith(color: CoreThemeColor.primary),
                         ),
                       )
                     : SizedBox(
@@ -63,8 +64,7 @@ class CartPage extends StatelessWidget {
                         // Navigator.pushNamed(context, AppRoutes.orderSuccessfull);
                         if (provider.cart.isNotEmpty) {
                           Navigator.pushNamed(context, RoutesName.checkoutPage);
-                        }
-                        {
+                        } else {
                           UiUtil.openBottomSheet(
                               context: context,
                               widget: Padding(

@@ -1,7 +1,9 @@
+import 'package:commerce/features/auth/presentation/provider/login_with_google_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:commerce/core/constants/constants.dart';
 import 'package:commerce/core/routes/routes.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:provider/provider.dart';
 
 class LoginOrRegisterFooter extends StatelessWidget {
   const LoginOrRegisterFooter({super.key});
@@ -37,10 +39,16 @@ class LoginOrRegisterFooter extends StatelessWidget {
               icon: SvgPicture.asset(CoreIcons.appleIcon),
               iconSize: 48,
             ),
-            IconButton(
-              onPressed: () {},
-              icon: SvgPicture.asset(CoreIcons.googleIcon),
-              iconSize: 48,
+            Consumer<LoginWithGoogleProvider>(
+              builder: (context, provider, child) {
+                return IconButton(
+                  onPressed: () {
+                    provider.loginWithGoogle(context);
+                  },
+                  icon: SvgPicture.asset(CoreIcons.googleIcon),
+                  iconSize: 48,
+                );
+              },
             ),
             IconButton(
               onPressed: () {},

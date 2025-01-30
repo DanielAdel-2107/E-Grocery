@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:shared_preferences/shared_preferences.dart';
 
 class CacheHelper {
@@ -22,6 +24,9 @@ class CacheHelper {
     if (value is String) {
       return await sharedPreferences.setString(key, value);
     }
+    if (value is List<Map<String, dynamic>>) {
+      return await sharedPreferences.setString(key, jsonEncode(value));
+    }
 
     if (value is int) {
       return await sharedPreferences.setString(key, value.toString());
@@ -30,19 +35,24 @@ class CacheHelper {
     }
   }
 
-//! this method to get data already saved in local database
-
   dynamic getData({required String key}) {
-    return sharedPreferences.get(key);
+    String? jsonString = sharedPreferences.getString(key);
+    if (jsonString != null) {
+      try {
+        final decodedData = jsonDecode(jsonString);
+        if (decodedData is List) {
+          return decodedData;
+        }
+      } catch (e) {
+        return jsonString;
+      }
+    }
   }
-
-//! remove data using specific key
 
   Future<bool> removeData({required String key}) async {
     return await sharedPreferences.remove(key);
   }
 
-//! this method to check if local database contains {key}
   Future<bool> containsKey({required String key}) async {
     return sharedPreferences.containsKey(key);
   }

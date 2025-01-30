@@ -1,15 +1,25 @@
-import 'package:commerce/core/services/api/end_points.dart';
-
 class ErrorModel {
-  final int status;
-  final String message;
+  final String? title;
 
-  ErrorModel({required this.status, required this.message});
+  ErrorModel({
+    this.title,
+  });
 
-  factory ErrorModel.fromJson(Map<String, dynamic> json) {
-    return ErrorModel(
-      status: json[ApiKeys.status],
-      message: json[ApiKeys.message],
-    );
+  factory ErrorModel.fromJson(dynamic json) {
+    if (json is Map<String, dynamic>) {
+      return ErrorModel(
+        title: json["title"] ?? "Unknown error",
+      );
+    } else {
+      return ErrorModel(
+        title: json.toString(),
+      );
+    }
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      "title": title,
+    };
   }
 }

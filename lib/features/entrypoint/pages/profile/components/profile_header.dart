@@ -51,8 +51,7 @@ class _UserData extends StatelessWidget {
             child: ClipOval(
               child: AspectRatio(
                   aspectRatio: 1 / 1,
-                  child: Image.asset(
-                      'assets/images/review/person.png')),
+                  child: Image.asset('assets/images/review/person.png')),
             ),
           ),
           const SizedBox(width: CoreDefaults.padding),
